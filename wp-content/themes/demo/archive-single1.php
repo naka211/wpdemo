@@ -21,8 +21,12 @@ get_header();?>
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
-
-		<?php if ( have_posts() ) : ?>
+		<?php
+			$my_comment = $wpdb->get_var( "SELECT comment_content FROM $wpdb->comments WHERE comment_ID = 1" );
+			echo $my_comment;
+			demo_testFunction();
+		?>
+		<?php /*if ( have_posts() ) : ?>
 			<header class="archive-header">
 				<h1 class="archive-title"><?php
 					if ( is_day() ) :
@@ -37,7 +41,7 @@ get_header();?>
 				?></h1>
 			</header><!-- .archive-header -->
 
-			<?php /* The loop */ ?>
+			
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'content', get_post_format() ); ?>
 			<?php endwhile; ?>
@@ -46,7 +50,7 @@ get_header();?>
 
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
-		<?php endif; ?>
+		<?php endif; */?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
